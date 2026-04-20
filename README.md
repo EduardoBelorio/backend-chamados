@@ -8,7 +8,7 @@
 
 API REST para gerenciamento de chamados de suporte técnico. Permite que times de TI registrem, acompanhem e resolvam problemas técnicos de forma organizada, com controle de prioridade, status e responsável por cada chamado.
 
-Desenvolvido com **FastAPI**, framework Python moderno adotado por empresas como Netflix, Uber e Microsoft, com persistência de dados em **PostgreSQL**.
+Desenvolvido com **FastAPI**, framework Python moderno adotado por empresas como Netflix, Uber e Microsoft, com persistência de dados em **PostgreSQL** e dashboard frontend em HTML puro.
 
 ---
 
@@ -23,6 +23,7 @@ Desenvolvido com **FastAPI**, framework Python moderno adotado por empresas como
 | PostgreSQL | 18+ | Banco de dados relacional |
 | Pydantic | 2.0+ | Validação de dados |
 | python-dotenv | 1.2+ | Gerenciamento de variáveis de ambiente |
+| HTML + CSS + JS | — | Dashboard frontend |
 
 ---
 
@@ -42,6 +43,7 @@ backend-chamados/
 │
 ├── database.py           # Conexão com o PostgreSQL
 ├── main.py               # Inicialização da API
+├── frontend.html         # Dashboard visual do sistema
 ├── .env                  # Variáveis de ambiente (não versionar)
 └── requirements.txt      # Dependências do projeto
 ```
@@ -61,7 +63,7 @@ backend-chamados/
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/backend-chamados.git
+git clone https://github.com/EduardoBelorio/backend-chamados.git
 cd backend-chamados
 ```
 
@@ -101,6 +103,10 @@ uvicorn main:app --reload
 ```
 
 Acesse em: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+### 6. Abra o dashboard
+
+Com a API rodando, abra o arquivo `frontend.html` diretamente no navegador. O dashboard conecta automaticamente na API.
 
 ---
 
@@ -184,6 +190,17 @@ O FastAPI gera automaticamente duas interfaces de documentação — sem nenhuma
 | `responsavel` | String(100) | Nome do responsável pelo chamado |
 | `criado_em` | DateTime | Preenchido automaticamente na criação |
 | `atualizado_em` | DateTime | Atualizado automaticamente a cada edição |
+
+---
+
+## 🎨 Dashboard
+
+O projeto inclui um dashboard frontend em HTML puro que conecta diretamente na API, sem necessidade de frameworks adicionais. Funcionalidades:
+
+- Cards de métricas em tempo real (total, abertos, em andamento, resolvidos)
+- Formulário para criar novos chamados
+- Tabela completa com badges de prioridade e status
+- Botões de resolver e excluir diretamente na tabela
 
 ---
 
